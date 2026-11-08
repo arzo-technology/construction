@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services | BuildPro Construction</title>
+<meta name="description" content="Explore our comprehensive construction services: residential, commercial, industrial, infrastructure, architecture, engineering and renovation.">
+<link rel="canonical" href="https://example.com/services.html">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23101D30' rx='6'/%3E%3Cpath d='M6 26V11L16 5l10 6v15' stroke='%23C9A45C' stroke-width='2.5' fill='none'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/animations.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body data-page="services">
+<main>
+
+<section class="page-hero">
+  <div class="container">
+    <nav class="breadcrumb"><a href="index.html">Home</a> <span>/</span> <span>Services</span></nav>
+    <span class="eyebrow" style="color:var(--secondary)">WHAT WE DO</span>
+    <h1>Comprehensive Construction Services</h1>
+    <p>End-to-end construction and engineering services tailored to your project's needs.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="services-grid" id="fullServicesGrid"></div>
+  </div>
+</section>
+
+<section class="section section-light">
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow">Detailed Overview</span>
+      <h2>Every Service, Explained</h2>
+      <p>Learn more about each of our services and how they can benefit your project.</p>
+    </div>
+    <div id="detailedServices"></div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="container cta-inner">
+    <h2>Not Sure Which Service You Need?</h2>
+    <p>Speak with one of our experts and we'll guide you in the right direction.</p>
+    <div class="cta-buttons">
+      <a href="contact.html" class="btn btn-primary btn-lg">Talk to an Expert</a>
+      <a href="quote.html" class="btn btn-outline-light btn-lg">Request a Quote</a>
+    </div>
+  </div>
+</section>
+
+</main>
+<script src="js/configuration.js"></script>
+<script src="js/components.js"></script>
+<script src="js/render.js"></script>
+<script src="js/main.js"></script>
+<script src="js/forms.js"></script>
+<script src="js/projects.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  renderServices(document.getElementById('fullServicesGrid'), {limit:20});
+  const detailed = document.getElementById('detailedServices');
+  if(detailed){
+    detailed.innerHTML = SERVICES.map((s,i) => `
+      <div id="${s.id}" style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;margin-bottom:72px;${i%2?'direction:rtl':''}">
+        <div style="${i%2?'direction:ltr':''}">
+          <img src="${s.image}" alt="${s.title}" style="width:100%;border-radius:var(--r-lg);box-shadow:var(--sh-md);aspect-ratio:4/3;object-fit:cover" loading="lazy">
+        </div>
+        <div style="${i%2?'direction:ltr':''}">
+          <div class="feature-icon" style="margin-bottom:20px">${iconSVG(s.icon,26)}</div>
+          <h3 style="font-size:1.6rem;margin-bottom:16px">${s.title}</h3>
+          <p style="margin-bottom:20px">${s.long}</p>
+          <h4 style="margin-bottom:12px;font-size:1rem">Key Benefits</h4>
+          <ul style="margin-bottom:24px;list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:8px">
+            ${s.benefits.map(b => `<li style="display:flex;align-items:center;gap:8px;font-size:.9rem;color:var(--text)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="color:var(--secondary);flex-shrink:0"><path d="M5 12l5 5 9-11" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>${b}</li>`).join('')}
+          </ul>
+          <a href="quote.html" class="btn btn-primary btn-sm">Request a Quote for ${s.title}</a>
+        </div>
+      </div>`).join('');
+  }
+});
+</script>
+</body>
+</html>

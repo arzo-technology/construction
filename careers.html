@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Careers | BuildPro Construction</title>
+<meta name="description" content="Join BuildPro Construction. Explore our open positions and build a rewarding career with us.">
+<link rel="canonical" href="https://example.com/careers.html">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23101D30' rx='6'/%3E%3Cpath d='M6 26V11L16 5l10 6v15' stroke='%23C9A45C' stroke-width='2.5' fill='none'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/animations.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body data-page="careers">
+<main>
+
+<section class="page-hero">
+  <div class="container">
+    <nav class="breadcrumb"><a href="index.html">Home</a> <span>/</span> <span>Careers</span></nav>
+    <span class="eyebrow" style="color:var(--secondary)">BUILD YOUR CAREER</span>
+    <h1>Work With BuildPro</h1>
+    <p>Join a team that values expertise, innovation and integrity.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow">Why Work With Us</span>
+      <h2>Careers That Build Futures</h2>
+      <p>We invest in our people with continuous learning, competitive benefits and a culture of respect.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature reveal"><h3>Growth Opportunities</h3><p>Clear career paths, mentorship programs and ongoing professional development.</p></div>
+      <div class="feature reveal reveal-delay-1"><h3>Competitive Compensation</h3><p>Salaries benchmarked to industry standards with performance-based bonuses.</p></div>
+      <div class="feature reveal reveal-delay-2"><h3>Comprehensive Benefits</h3><p>Health, dental, vision, retirement plans and paid time off.</p></div>
+      <div class="feature reveal"><h3>Work-Life Balance</h3><p>Flexible working arrangements and generous vacation policies.</p></div>
+      <div class="feature reveal reveal-delay-1"><h3>Modern Tools</h3><p>Latest construction technology and equipment to do your best work.</p></div>
+      <div class="feature reveal reveal-delay-2"><h3>Safety Culture</h3><p>Zero tolerance for unsafe practices. Your safety is our top priority.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-light">
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow">Open Positions</span>
+      <h2>Current Job Openings</h2>
+    </div>
+    <div id="jobsList" style="display:flex;flex-direction:column;gap:20px"></div>
+  </div>
+</section>
+
+<section class="section" id="apply">
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow">Application</span>
+      <h2>Apply Now</h2>
+      <p>Submit your details and CV — we'll be in touch soon.</p>
+    </div>
+    <div class="form-card" style="max-width:760px;margin:0 auto">
+      <div class="form-note">Demo form — this is a frontend template. To enable real submissions, set <code>COMPANY.formEndpoint</code> in <code>js/configuration.js</code>.</div>
+      <div class="form-success"></div>
+      <div class="form-error-box"></div>
+      <form data-validate enctype="multipart/form-data">
+        <div class="form-row">
+          <div class="form-group"><label for="fullName">Full Name <span class="req">*</span></label><input type="text" class="form-control" id="fullName" name="fullName" required></div>
+          <div class="form-group"><label for="email">Email <span class="req">*</span></label><input type="email" class="form-control" id="email" name="email" required></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label for="phone">Phone <span class="req">*</span></label><input type="tel" class="form-control" id="phone" name="phone" required></div>
+          <div class="form-group"><label for="position">Position <span class="req">*</span></label>
+            <select class="form-control" id="position" name="position" required>
+              <option value="">Select a position</option>
+              <option value="Civil Engineer">Civil Engineer</option>
+              <option value="Architect">Architect</option>
+              <option value="Project Manager">Project Manager</option>
+              <option value="Electrical Engineer">Electrical Engineer</option>
+              <option value="Site Supervisor">Site Supervisor</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group"><label for="experience">Years of Experience <span class="req">*</span></label><input type="text" class="form-control" id="experience" name="experience" placeholder="e.g. 5 years" required></div>
+        <div class="form-group"><label for="message">Cover Note <span class="req">*</span></label><textarea class="form-control" id="message" name="message" required placeholder="Tell us a bit about yourself"></textarea></div>
+        <div class="form-group"><label for="cv">Upload CV (PDF)</label><input type="file" class="form-control" id="cv" name="cv" accept=".pdf,.doc,.docx"></div>
+        <button type="submit" class="btn btn-primary btn-lg" style="width:100%">Submit Application</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+<script src="js/configuration.js"></script>
+<script src="js/components.js"></script>
+<script src="js/render.js"></script>
+<script src="js/main.js"></script>
+<script src="js/forms.js"></script>
+<script src="js/projects.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  renderJobs(document.getElementById('jobsList'));
+});
+</script>
+</body>
+</html>

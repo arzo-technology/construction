@@ -1,0 +1,86 @@
+/* ============ RESPONSIVE ============ */
+@media (max-width:1100px){
+  .footer-grid{grid-template-columns:1fr 1fr;gap:40px}
+  .services-grid,.projects-grid,.blog-grid,.team-grid,.testimonials-grid,.features-grid{grid-template-columns:repeat(2,1fr)}
+  .process-timeline{grid-template-columns:repeat(3,1fr);gap:32px}
+  .process-timeline::before{display:none}
+  .about-grid{gap:48px}
+}
+
+@media (max-width:900px){
+  .header-phone span{display:none}
+  .main-nav{
+    position:fixed;top:70px;left:0;right:0;bottom:0;background:var(--white);
+    padding:24px;transform:translateX(100%);transition:transform .35s ease;
+    overflow-y:auto;z-index:999;
+  }
+  .main-nav.open{transform:translateX(0)}
+  .main-nav ul{flex-direction:column;align-items:stretch;gap:4px}
+  .main-nav a{
+    padding:14px 18px;color:var(--primary)!important;font-size:1rem;
+    border-radius:var(--r-sm);justify-content:space-between;
+  }
+  .main-nav a.active,.main-nav a:hover{background:rgba(201,164,92,.1);color:var(--secondary-dk)!important}
+  .dropdown{
+    position:static;box-shadow:none;border:none;padding:0;
+    opacity:1;visibility:visible;transform:none;margin-left:16px;
+    display:none;
+  }
+  .has-dropdown.open .dropdown{display:block}
+  .dropdown a{color:var(--muted)!important;font-size:.9rem}
+  .nav-toggle{display:flex}
+  .header-actions .btn-primary{display:none}
+  .nav-toggle span{background:var(--primary)}
+
+  .hero{min-height:auto;padding:130px 0 70px}
+  .hero-badges{gap:24px}
+  .hero-badge strong{font-size:1.3rem}
+  .about-grid{grid-template-columns:1fr}
+  .about-media{max-width:500px;margin:0 auto}
+  .stats-grid{grid-template-columns:repeat(2,1fr);gap:24px}
+  .stat::after{display:none}
+  .contact-grid{grid-template-columns:1fr;gap:32px}
+  .grid-2,.grid-3,.grid-4{grid-template-columns:1fr}
+  .pager{flex-direction:column}
+  .pager a{max-width:100%}
+  .pager .next{text-align:left;margin-left:0}
+  .form-row{grid-template-columns:1fr}
+}
+
+@media (max-width:640px){
+  .section{padding:64px 0}
+  .section-sm{padding:48px 0}
+  .container{padding:0 18px}
+  .services-grid,.projects-grid,.blog-grid,.team-grid,.testimonials-grid,.features-grid{grid-template-columns:1fr}
+  .process-timeline{grid-template-columns:1fr}
+  .hero-badges{gap:20px;flex-wrap:wrap}
+  .hero-badge{flex:1;min-width:130px}
+  .hero-cta{flex-direction:column;align-items:stretch}
+  .hero-cta .btn{justify-content:center}
+  .cta-buttons{flex-direction:column}
+  .cta-buttons .btn{justify-content:center}
+  .about-highlights{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr;gap:36px}
+  .footer-bottom{flex-direction:column;text-align:center;gap:12px}
+  .footer-bottom ul{gap:16px;justify-content:center;flex-wrap:wrap}
+  .form-card{padding:28px}
+  .contact-info-card{padding:32px}
+  .highlight-inner{padding:60px 0}
+  .page-hero{padding:140px 0 70px}
+  .about-media .float-card{bottom:-20px;right:-8px;padding:18px 20px;min-width:auto}
+  .about-media .float-card strong{font-size:1.8rem}
+  .header-actions{gap:8px}
+  .btn{padding:12px 22px;font-size:.88rem}
+  .btn-lg{padding:14px 28px}
+  .blog-meta{gap:8px}
+  .testimonial{padding:28px 24px}
+  .cta-section{padding:70px 0}
+  .footer-col ul{margin-bottom:4px}
+}
+
+@media (max-width:400px){
+  h1{font-size:2rem}
+  .hero{padding:120px 0 50px}
+  .hero-badge strong{font-size:1.15rem}
+  .stat strong{font-size:2rem}
+}

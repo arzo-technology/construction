@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Request a Quote | BuildPro Construction</title>
+<meta name="description" content="Request a detailed, no-obligation quote for your construction project.">
+<link rel="canonical" href="https://example.com/quote.html">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23101D30' rx='6'/%3E%3Cpath d='M6 26V11L16 5l10 6v15' stroke='%23C9A45C' stroke-width='2.5' fill='none'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/animations.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body data-page="quote">
+<main>
+
+<section class="page-hero">
+  <div class="container">
+    <nav class="breadcrumb"><a href="index.html">Home</a> <span>/</span> <span>Request a Quote</span></nav>
+    <span class="eyebrow" style="color:var(--secondary)">GET A QUOTE</span>
+    <h1>Request a Free Quote</h1>
+    <p>Tell us about your project and we'll prepare a detailed, no-obligation quote.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="form-card" style="max-width:920px;margin:0 auto">
+      <h2 style="margin-bottom:8px">Project Details</h2>
+      <p style="margin-bottom:24px">The more information you provide, the more accurate your quote will be.</p>
+      <div class="form-note">Demo form — connect <code>COMPANY.formEndpoint</code> in <code>js/configuration.js</code> to receive real quote requests. Your data is never sent anywhere in demo mode.</div>
+      <div class="form-success"></div>
+      <div class="form-error-box"></div>
+      <form data-validate enctype="multipart/form-data">
+        <div class="form-row">
+          <div class="form-group"><label for="qName">Full Name <span class="req">*</span></label><input type="text" class="form-control" id="qName" name="name" required></div>
+          <div class="form-group"><label for="qCompany">Company (optional)</label><input type="text" class="form-control" id="qCompany" name="company"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label for="qEmail">Email <span class="req">*</span></label><input type="email" class="form-control" id="qEmail" name="email" required></div>
+          <div class="form-group"><label for="qPhone">Phone <span class="req">*</span></label><input type="tel" class="form-control" id="qPhone" name="phone" required></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label for="qType">Project Type <span class="req">*</span></label>
+            <select class="form-control" id="qType" name="projectType" required>
+              <option value="">Select project type</option>
+              <option>Residential</option>
+              <option>Commercial</option>
+              <option>Industrial</option>
+              <option>Infrastructure</option>
+              <option>Renovation</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group"><label for="qLocation">Project Location <span class="req">*</span></label><input type="text" class="form-control" id="qLocation" name="location" placeholder="City, State" required></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label for="qArea">Estimated Area (m² or sq ft)</label><input type="text" class="form-control" id="qArea" name="area"></div>
+          <div class="form-group"><label for="qBudget">Estimated Budget</label>
+            <select class="form-control" id="qBudget" name="budget">
+              <option>Under $100,000</option>
+              <option>$100,000 – $500,000</option>
+              <option>$500,000 – $1M</option>
+              <option>$1M – $5M</option>
+              <option>$5M+</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group"><label for="qStart">Expected Start Date</label><input type="date" class="form-control" id="qStart" name="startDate"></div>
+        <div class="form-group"><label for="qDesc">Project Description <span class="req">*</span></label><textarea class="form-control" id="qDesc" name="description" required placeholder="Describe your project, its purpose, key features and any special requirements."></textarea></div>
+        <div class="form-group"><label for="qDrawings">Upload Project Drawings (optional)</label><input type="file" class="form-control" id="qDrawings" name="drawings" accept=".pdf,.dwg,.png,.jpg"></div>
+        <p style="font-size:.82rem;color:var(--muted);margin:8px 0 20px"><strong>Privacy:</strong> Your information is only used to prepare your quote. We never share your data with third parties.</p>
+        <button type="submit" class="btn btn-primary btn-lg" style="width:100%">Request My Quote</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="section section-light">
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow">Common Questions</span>
+      <h2>FAQ</h2>
+    </div>
+    <div class="faq-list" id="faqList"></div>
+  </div>
+</section>
+
+</main>
+<script src="js/configuration.js"></script>
+<script src="js/components.js"></script>
+<script src="js/render.js"></script>
+<script src="js/main.js"></script>
+<script src="js/forms.js"></script>
+<script src="js/projects.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  renderFAQs(document.getElementById('faqList'));
+});
+</script>
+</body>
+</html>
