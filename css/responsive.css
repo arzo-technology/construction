@@ -22,24 +22,27 @@
   }
   .main-nav a.active,.main-nav a:hover{background:rgba(201,164,92,.1);color:var(--secondary-dk)!important}
   
-  /* --- MOBILE MENU DROPDOWN FIX --- */
-  .dropdown{
-    position:static;box-shadow:none;border:none;padding:0;
-    margin-left:16px;
+  /* --- BULLETPROOF MOBILE MENU DROPDOWN --- */
+  .dropdown {
+    display: none; /* Completely removes the white space */
+    position: static;
+    box-shadow: none;
+    border: none;
+    background: transparent;
+    padding: 0;
+    margin: 8px 0 8px 16px;
   }
-  /* Force hide on hover so it doesn't get stuck */
-  .has-dropdown:hover .dropdown {
-    opacity: 0;
-    visibility: hidden;
-    display: none;
+  /* Only show when JS toggles the .open class */
+  .has-dropdown.open .dropdown {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
   }
-  /* Only show when JS adds the 'open' class */
-  .has-dropdown.open .dropdown{
-    display:block;
-    opacity: 1;
-    visibility: visible;
-  }
-  .dropdown a{color:var(--muted)!important;font-size:.9rem}
+  /* Prevent desktop hover from accidentally triggering on mobile */
+  .has-dropdown:hover .dropdown { display: none; }
+  .has-dropdown.open:hover .dropdown { display: flex; }
+
+  .dropdown a{color:var(--muted)!important;font-size:.9rem; padding: 10px 14px;}
   
   .nav-toggle{display:flex}
   .header-actions .btn-primary{display:none}
@@ -69,10 +72,6 @@
   }
   .detailed-service-benefits {
     grid-template-columns: 1fr;
-  }
-  .detailed-service-content .btn {
-    white-space: normal; /* Allows long button text to wrap nicely */
-    text-align: center;
   }
 }
 
