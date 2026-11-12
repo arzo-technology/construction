@@ -21,13 +21,26 @@
     border-radius:var(--r-sm);justify-content:space-between;
   }
   .main-nav a.active,.main-nav a:hover{background:rgba(201,164,92,.1);color:var(--secondary-dk)!important}
+  
+  /* --- MOBILE MENU DROPDOWN FIX --- */
   .dropdown{
     position:static;box-shadow:none;border:none;padding:0;
-    opacity:1;visibility:visible;transform:none;margin-left:16px;
-    display:none;
+    margin-left:16px;
   }
-  .has-dropdown.open .dropdown{display:block}
+  /* Force hide on hover so it doesn't get stuck */
+  .has-dropdown:hover .dropdown {
+    opacity: 0;
+    visibility: hidden;
+    display: none;
+  }
+  /* Only show when JS adds the 'open' class */
+  .has-dropdown.open .dropdown{
+    display:block;
+    opacity: 1;
+    visibility: visible;
+  }
   .dropdown a{color:var(--muted)!important;font-size:.9rem}
+  
   .nav-toggle{display:flex}
   .header-actions .btn-primary{display:none}
   .nav-toggle span{background:var(--primary)}
@@ -45,6 +58,22 @@
   .pager a{max-width:100%}
   .pager .next{text-align:left;margin-left:0}
   .form-row{grid-template-columns:1fr}
+
+  /* --- SERVICES PAGE LAYOUT FIX --- */
+  .detailed-service {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .detailed-service.reverse {
+    direction: ltr;
+  }
+  .detailed-service-benefits {
+    grid-template-columns: 1fr;
+  }
+  .detailed-service-content .btn {
+    white-space: normal; /* Allows long button text to wrap nicely */
+    text-align: center;
+  }
 }
 
 @media (max-width:640px){
