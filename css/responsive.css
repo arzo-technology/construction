@@ -24,24 +24,25 @@
   
   /* --- BULLETPROOF MOBILE MENU DROPDOWN --- */
   .dropdown {
-    display: none; /* Completely removes the white space */
-    position: static;
+    display: none !important; /* Forces it to take zero white space when closed */
+    position: static !important;
     box-shadow: none;
     border: none;
     background: transparent;
     padding: 0;
     margin: 8px 0 8px 16px;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
   }
-  /* Only show when JS toggles the .open class */
+  
+  /* Only show when clicked */
   .has-dropdown.open .dropdown {
-    display: flex;
+    display: flex !important;
     flex-direction: column;
     gap: 4px;
   }
-  /* Prevent desktop hover from accidentally triggering on mobile */
-  .has-dropdown:hover .dropdown { display: none; }
-  .has-dropdown.open:hover .dropdown { display: flex; }
-
+  
   .dropdown a{color:var(--muted)!important;font-size:.9rem; padding: 10px 14px;}
   
   .nav-toggle{display:flex}
@@ -62,10 +63,14 @@
   .pager .next{text-align:left;margin-left:0}
   .form-row{grid-template-columns:1fr}
 
-  /* --- SERVICES PAGE LAYOUT FIX --- */
+  /* --- SERVICES PAGE LAYOUT & SPACING FIX --- */
   .detailed-service {
     grid-template-columns: 1fr;
     gap: 32px;
+    margin-bottom: 64px; /* Fixes the missing space! */
+  }
+  .detailed-service-content {
+    padding-bottom: 24px; /* Adds breathing room below button */
   }
   .detailed-service.reverse {
     direction: ltr;
