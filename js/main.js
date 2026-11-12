@@ -25,6 +25,8 @@ document.addEventListener('DOMContentLoaded', () => {
       navToggle.setAttribute('aria-expanded', open);
       document.body.style.overflow = open ? 'hidden' : '';
     });
+    
+    // Mobile dropdown toggle
     mainNav.querySelectorAll('.has-dropdown > a').forEach(a => {
       a.addEventListener('click', (e) => {
         if(window.innerWidth <= 900){
@@ -33,6 +35,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
     });
+    
+    // Close on link click
     mainNav.querySelectorAll('a').forEach(a => {
       a.addEventListener('click', () => {
         if(!a.parentElement.classList.contains('has-dropdown')){
@@ -40,14 +44,14 @@ document.addEventListener('DOMContentLoaded', () => {
           navToggle.classList.remove('active');
           navToggle.setAttribute('aria-expanded', false);
           document.body.style.overflow = '';
+          // Reset all dropdowns to closed when menu closes
+          mainNav.querySelectorAll('.has-dropdown').forEach(d => d.classList.remove('open'));
         }
       });
     });
   }
 
-  /* ============================================================
-     SCROLL REVEAL — works with dynamically-rendered content
-     ============================================================ */
+  /* --- Scroll Reveal --- */
   const revealIO = new IntersectionObserver(entries => {
     entries.forEach(e => {
       if(e.isIntersecting){
@@ -59,7 +63,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function scanReveal(){
     document.querySelectorAll('.reveal:not(.visible)').forEach(el => {
-      // If element is already in viewport on scan, show it immediately
       const rect = el.getBoundingClientRect();
       if(rect.top < window.innerHeight && rect.bottom > 0){
         el.classList.add('visible');
@@ -69,16 +72,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Initial scan
   scanReveal();
-
-  // Re-scan whenever new content is injected (dynamic renders)
-  const revealMO = new MutationObserver(() => {
-    requestAnimationFrame(scanReveal);
-  });
+  const revealMO = new MutationObserver(() => { requestAnimationFrame(scanReveal); });
   revealMO.observe(document.body, {childList: true, subtree: true});
-
-  // Expose for manual calls if needed
   window.refreshReveal = scanReveal;
 
   /* --- Counters --- */
